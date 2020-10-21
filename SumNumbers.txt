@@ -1,0 +1,26 @@
+import java.util.Scanner;
+
+public class SumOfNumbers {
+	public static void main(String[] args) {
+		Scanner numbers = new Scanner(System.in);
+		System.out.println("enter numbers:");
+		String a = numbers.nextLine();
+		String b = numbers.nextLine();
+		String c = numbers.nextLine();
+		int I = Integer.parseInt(a);
+		I = Integer.parseInt(args[0]);
+		int II = Integer.parseInt(b);
+		II = Integer.parseInt(args[1]);
+		int III = Integer.parseInt(c);
+		III = Integer.parseInt(args[2]);
+		int sum = I + II + III;
+		System.out.println(sum);
+		System.out.println("enter numbers:");
+		String f = numbers.nextLine();
+		String g = numbers.nextLine();
+		double VI = Double.parseDouble(f);
+		double VII = Double.parseDouble(g);
+		double sum2 = VI + VII;
+		System.out.println(sum2);
+	}
+}

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class SumNumbersMyVersion {
+public static void main(String[] args) {
+	Scanner numbers = new Scanner(System.in);
+	System.out.println("enter numbers:");
+	int a = numbers.nextInt();
+	int b = numbers.nextInt();
+	int c = numbers.nextInt();
+	int sum = a + b + c;
+	System.out.println(sum);
+	System.out.println("enter numbers:");
+	double d = numbers.nextDouble();
+	double e = numbers.nextDouble();
+	double sum2 = d + e;
+	System.out.println(sum2);
+}
+}

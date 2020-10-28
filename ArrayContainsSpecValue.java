@@ -8,9 +8,9 @@ class Test1 {
 		return false;
 	}
 
-	public static void specv(int[] array, int value) {
+	public static void specv(int[] array, int value) {// Where is mistake in this method ????
 		int i;
-		for (i = 0; i <= array.length; i++) {
+		for (i = 0; i <= array.length-1; i++) {
 			if (array[i] == value) {
 				System.out.println(true);
 				break;

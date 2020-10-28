@@ -1,17 +1,16 @@
 
 public class Word_split {
 	public static void main(String[] args) {
-		for (String a : args) {
-			a.toCharArray();
-			System.out.println(a);
+		System.out.println("toCharArray() METHOD: \n");
+		char [] letters=args[0].toCharArray();
+		for(char i=0;i<=letters.length-1;i++) {
+			System.out.println(letters[i]);
 		}
-		System.out.println("---------------------------------------");
-		String c= " ";
-		String d="";
-		for(int i= 0;i<=args.length-1;i++) {
-		c=args.toString();
-		d =d + c.charAt(i);
-		System.out.println(d);// I don't know how to do it with charAt. 
-		}
+		
+		System.out.println("\ncharAt(index) METHOD: \n");
+		String word=args[0].toString();
+		for(int j=0;j<=word.length()-1;j++) {
+			System.out.println(word.charAt(j));
+		}	
 	}
 }

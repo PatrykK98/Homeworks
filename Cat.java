@@ -12,14 +12,17 @@ public class Cat {
 	}
 
 	public void eat(String food) {
+		this.food=food;
 		System.out.println(name + " is eating " + food);
 	}
 
 	public void play(String toy) {
+		this.toy=toy;
 		System.out.println(name + " is playing with " + toy);
 	}
 
 	public void sleep(int hour) {
+		this.hour=hour;
 		System.out.println(name + " is going to sleep for " + hour+" hours");
 	}
 
@@ -39,6 +42,7 @@ public class Cat {
 		return isHungry;
 	}
 	public void Tommy(boolean isHungry) {
+		this.isHungry=isHungry;
 		if(isHungry){
 			System.out.println(name+" is hungry");
 		}else {

@@ -1,0 +1,18 @@
+import java.util.Scanner;
+
+public class Triangle {
+	public static void main(String[] args) {
+		Scanner number = new Scanner(System.in);
+		int a,b,c;
+		System.out.println("Enter sides of the triangle:");
+		a=number.nextInt();
+		b=number.nextInt();
+		c=number.nextInt();
+		if(a+b >=c && a+c >=b && b+c>=a ) {
+			System.out.println("U can build a triangle");
+		}
+		else {
+			System.out.println("U cant build a triangle");
+		}
+	}
+}

@@ -1,0 +1,28 @@
+package training;
+
+import java.util.Scanner;
+
+public class TrafficLight {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		String color1 = "green";
+		String color2 = "red";
+		String color3 = "yellow";
+		String color4 = color2 +"+"+ color3;
+		String color5 = color3+"+"+color2;
+		System.out.println("what the color?");
+		String col = input.nextLine();
+		boolean green = col.equalsIgnoreCase(color1);
+		boolean yellow= col.equalsIgnoreCase(color4);
+		boolean red=col.equalsIgnoreCase(color5);
+		if (green) {
+			System.out.println("go!");
+		} else if (yellow || red) {
+			System.out.println("get ready to go!");
+		} else {
+			System.out.println("stop!");
+		}
+	}
+}
+
+

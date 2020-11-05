@@ -1,15 +1,13 @@
 public class Avarage_Calculator {
 	public static void main(String[] args) {
-		int p;
-		int sum = 0;
+		double p;
+		double sum = 0;
 		for (String a : args) {
-			p = Integer.parseInt(a);
+			p = Double.parseDouble(a);
 			sum += p;
 		}
 		System.out.println(sum);
-		int amount;
-		for (amount = 0; amount <= args.length - 1; amount++) {
-		}
+		double amount = args.length-1;
 		double avarage = sum/amount;
 		System.out.println(avarage);
 	}

@@ -1,0 +1,10 @@
+public class Arrays {
+public static void main(String[] args) {
+	int [] array = {10,20};
+	array [0] = array[1];
+	int value = array[0]-10;
+	array[1]=value;
+	System.out.println(array[0]);
+}
+}
+

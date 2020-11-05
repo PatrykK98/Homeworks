@@ -1,0 +1,20 @@
+import java.util.Scanner;
+
+public class If {
+public static void main(String[] args) {
+Scanner sc1 = new Scanner (System.in);
+	String str1= "yes";
+	
+	System.out.println("Is it raining today ?");
+	String word = sc1.nextLine();
+	boolean trv1 = str1.equalsIgnoreCase(word);
+	
+	if(trv1==false) {
+		System.out.println("You can go for a walk without umbrella");
+	}
+	else {
+		System.out.println("You should take an umbrella");
+	}
+}
+}
+

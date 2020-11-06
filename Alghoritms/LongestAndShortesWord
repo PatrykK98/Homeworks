@@ -1,0 +1,27 @@
+
+public class LongestAndShortesWord {
+	public static void Strings (String input) {
+		String lw="", sw="";
+		int length = input.length();
+		int l =0;
+		String [] words = input.split(" ");
+		
+		for(String word : words) {
+			if(length>word.length()) {
+				sw=word;
+				length=word.length();
+			}
+			else if(word.length()>l) {
+				lw=word;
+				l=word.length();
+			}
+		}
+	System.out.println("The longest word is: "+lw);
+	System.out.println("The shortes word is: "+sw);
+	}
+	public static void main(String[] args) {
+		String a ="Find the longest and the shortest word";
+		
+		Strings(a);
+	}
+}

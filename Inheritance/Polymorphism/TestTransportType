@@ -1,0 +1,19 @@
+package Inheritance;
+
+public class TestingTransportType {
+	public static void main(String[] args) {
+		Transport Car = new Car();
+		Transport Moto = new Motorbike();
+		Transport Bicycle = new Bicycle();
+		
+		Moto.transType();
+		Bicycle.transType();
+		
+		PublicTransport Bus = new Bus();
+		PublicTransport Airplane= new Airplane();
+		Bus.pTransType();
+		Airplane.pTransType();
+		
+		System.out.println(Car.question());
+	}
+}

@@ -1,0 +1,89 @@
+package Inheritance;
+
+import java.util.Scanner;
+import java.util.concurrent.ThreadLocalRandom;
+
+class Transport {
+	boolean isTrue;
+
+	public void transType() {
+		System.out.println("I go by ...");
+	}
+
+	public boolean question() {
+		return true;
+	}
+}
+
+class Car extends Transport { //I played around in class Car.
+	boolean isTrue;
+
+	public boolean question() {
+		Scanner input = new Scanner(System.in);
+		String[] models = { "R32", "GTI", "CUPRA", "FR", "//M POWER", "BRABUS", "VTS" };
+		int random = ThreadLocalRandom.current().nextInt(0, 6);
+		int i = random;
+		System.out.println("\nDid you pay your last bill rate?     YES/NO");
+		String answear = input.nextLine();
+		if (answear.equalsIgnoreCase("Yes")) {
+			System.out.println("You welcome !!");
+			System.out.println("You will go by: " + models[i]);
+			return !isTrue;
+
+		} else
+			System.out.println("You are going by walk !!\nPay your debts first!!");
+		return isTrue;
+	}
+}
+
+class Bicycle extends Transport {
+	public void transType() {
+		System.out.println("I go by bicycle");
+	}
+}
+
+class Scooter extends Transport {
+	public void transType() {
+		System.out.println("I go by scooter");
+	}
+}
+
+class Motorbike extends Transport {
+	public void transType() {
+		System.out.println("I go by motorbike");
+	}
+}
+
+class PublicTransport {
+	public void pTransType() {
+		System.out.println("I'm going by...");
+	}
+}
+
+class Airplane extends PublicTransport {
+	public void pTransType() {
+		System.out.println("I'm going by Airplain");
+	}
+}
+
+class Tram extends PublicTransport {
+	public void pTransType() {
+		System.out.println("I'm going by Tram");
+	}
+}
+
+class Bus extends PublicTransport {
+	public void pTransType() {
+		System.out.println("I'm going by bus ");
+	}
+}
+
+class Train extends PublicTransport {
+	public void pTransType() {
+		System.out.println("I'm going by train");
+	}
+}
+
+public class TransportType {
+
+}

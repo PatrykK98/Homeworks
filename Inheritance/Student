@@ -6,7 +6,7 @@ public class Student extends Person {
 	private String faculty;
 
 	public Student(String firstName, String lastName, LocalDate birthDate, int graduateYear, String faculty) {
-		super(firstName, lastName, birthDate); // There is an error: constructor Person(String, String, LocalDate) is undefined. Is it normal ??ac
+		super(firstName, lastName, birthDate); 
 		this.graduateYear=graduateYear;
 		this.faculty=faculty;
 	}

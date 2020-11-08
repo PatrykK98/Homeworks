@@ -1,0 +1,30 @@
+package Inheritance;
+
+class Transport{// parent class
+}
+class Car extends Transport{
+}
+class Bicycle extends Transport{
+}
+class Scooter extends Transport{
+}
+class Motorbike extends Transport{
+}
+
+
+class PublicTransport{// parent class 
+}
+class Airplane extends PublicTransport{
+}
+class Tram extends PublicTransport{
+}
+class Bus extends PublicTransport{
+}
+class Train extends PublicTransport{
+}
+
+
+
+public class ClassHierarchy {
+
+}

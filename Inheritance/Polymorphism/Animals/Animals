@@ -1,0 +1,37 @@
+package Polymorphism;
+
+public class Animals {
+	private String name;
+	private int age;
+	
+	public Animals(String name, int age) {
+		this.name=name;
+		this.age=age;
+	}
+	
+	public void agePrinter() {
+		System.out.println(name+" is "+age+" years old for human years");
+	}
+	
+	
+	public void animalSound(String sound, int time) {
+		System.out.println(sound+time);
+	}
+	
+	public void toyGame(String []toys) {
+		System.out.println();
+	}
+	
+	public int ageCounter() {
+		return age;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public int getAge() {
+		return age;
+	}
+	
+}

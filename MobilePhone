@@ -1,0 +1,57 @@
+
+public class MobilePhone {
+	private String brand;
+	private String model;
+	private int batCapacity;
+	private int batAmount=1000;
+	private int memory = 500;
+	private int freeMemory;
+
+	public MobilePhone(String brand, int batAmount, int memory) {
+		this.brand = brand;
+		this.batAmount = batAmount;
+		this.memory=memory;
+	}
+
+	public void add(String name, int appWeight) {
+		freeMemory = memory - appWeight;
+		if (freeMemory <= 0) {
+			System.out.println("Application " + name + " can not be installed on "+brand+". There is not enough memory");
+		} else {
+			System.out.println("Application " + name + " has been installed on " + brand + ". Remain memory: " + freeMemory+" MB");
+			memory=freeMemory;
+		}
+	}
+	public void use(String name, int time) {
+		batCapacity=batAmount-(time*100);
+		if(batCapacity>0) {
+			System.out.println("Application "+name+" has been playing on "+brand+" for "+time+" hours. Remain battery capacity: "+batCapacity+" mAh");
+		batAmount=batAmount-batCapacity;
+		}
+		else if(batAmount==0){
+			System.out.println("Application "+name+" can't be run on "+brand+". Phone discharged.");
+		}
+		else if(batCapacity<=0) {
+			System.out.println("Application "+name+" has been ran on "+brand+" for "+batAmount/100+" hours. Phone has been discharged");
+			batAmount=0;
+		}
+		
+	}
+	public void charge() {
+		batAmount=1000;
+		System.out.println(brand+" has been charged. Remain battery capacity: "+batAmount+" mAh");
+	}
+
+	public String getBrand() {
+		return brand;
+	}
+
+	public int getBatAmount() {
+		return batAmount;
+	}
+
+	public int getBatCapacity() {
+		return batCapacity;
+	}
+
+}

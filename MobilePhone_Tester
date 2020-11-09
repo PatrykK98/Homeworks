@@ -1,0 +1,16 @@
+
+public class MobilePhone_Tester {
+public static void main(String[] args) {
+	
+	MobilePhone iphone= new MobilePhone("Iphone", 1000, 500);
+	
+	iphone.add("Google Maps", 100);
+	iphone.add("Uber", 200);
+	iphone.add("Vinted", 250);
+	iphone.use("Spotify", 5);
+	iphone.use("Tinder", 8);
+	iphone.use("YouTube", 2);
+	iphone.charge();
+	iphone.use("olx", 3);
+}
+}

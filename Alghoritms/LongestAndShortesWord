@@ -1,9 +1,9 @@
 
 public class LongestAndShortesWord {
-	public static void Strings (String input) {
+	public static void wordsLength (String input) {
 		String lw="", sw="";
 		int length = input.length();
-		int l =0;
+		int i =0;
 		String [] words = input.split(" ");
 		
 		for(String word : words) {
@@ -11,9 +11,9 @@ public class LongestAndShortesWord {
 				sw=word;
 				length=word.length();
 			}
-			else if(word.length()>l) {
+			else if(word.length()>i) {
 				lw=word;
-				l=word.length();
+				i=word.length();
 			}
 		}
 	System.out.println("The longest word is: "+lw);
@@ -22,6 +22,6 @@ public class LongestAndShortesWord {
 	public static void main(String[] args) {
 		String a ="Find the longest and the shortest word";
 		
-		Strings(a);
+		wordsLength(a);
 	}
 }

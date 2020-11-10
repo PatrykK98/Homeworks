@@ -1,0 +1,50 @@
+
+public class Engine {
+	public String name;
+	public int horsepower;
+	public double capacity;
+	public boolean isStarted=true;
+
+	public Engine(String name, int horsepower, int capacity) {
+		this.name = name;
+		this.horsepower = horsepower;
+		this.capacity = capacity;
+	}
+
+	public void startEngine() {
+		if (isStarted == true)
+			System.out.println(name + " engine has been started already in " + name);
+		else
+			System.out.println(
+					"Car " + name + " is starting a " + name + " engine\n" + name + " engine has been started");
+			isStarted=true;
+	}
+
+	public void stopEngine() {
+		if (isStarted == false)
+			System.out.println("Car " + name + " is stopping " + name + " engine");
+	}
+
+	public boolean getisStarted() {
+		return isStarted;
+	}
+	
+	
+	public int maxSpeed() {
+		int maxspeed = getHorsepower()* 2;
+		return maxspeed;
+	}
+	
+
+	public String getName() {
+		return name;
+	}
+
+	public double getCapacity() {
+		return capacity;
+	}
+
+	public int getHorsepower() {
+		return horsepower;
+	}
+}

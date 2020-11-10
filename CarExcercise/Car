@@ -31,9 +31,13 @@ public class Car {
 		double range = fuelTankCapacity * (engine.getCapacity() / 100) / 4;// I don't know exactly why it works but it
 																			// works properly for this arguments.
 		rFuelAmount = fuelTankCapacity - consumption;
-
-		if (fuelTankCapacity == 0.0) {
+		
+		if(!engine.getisStarted()) {
+			System.out.println("Car " + name + " can't be driven cause engine stopped");
+			
+		}else if (fuelTankCapacity == 0.0) {
 			System.out.println("You can't drive, tank is empty");
+			
 		} else if (engine.getisStarted() && rFuelAmount > 0 && speed <= engine.maxSpeed()) {
 			System.out.println("Car " + name + " has been driven for " + distance + "km with speed " + speed
 					+ "km/h. Remaining fuel: " + rFuelAmount + "l");
@@ -43,6 +47,7 @@ public class Car {
 			System.out.println("Car " + name + " has been driven for " + distance + "km with speed " + engine.maxSpeed()
 					+ "km/h. Remaining fuel: " + rFuelAmount + "l");
 			fuelTankCapacity = fuelTankCapacity - consumption;
+			
 		} else if (engine.getisStarted() && rFuelAmount <= 0) {
 			System.out.println(
 					"Car " + name + " has been driven for " + range + "km with speed " + speed + "km/h. Fuel is empty");

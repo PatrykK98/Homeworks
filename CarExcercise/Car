@@ -1,0 +1,70 @@
+
+public class Car {
+	public String name;
+	private Engine engine;
+	private double fuelTankCapacity;
+	private double rFuelAmount;
+
+	public Car(String name, Engine engine, int fuelTankCapacity) {
+		this.name = name;
+		this.engine = engine;
+		this.fuelTankCapacity = fuelTankCapacity;
+	}
+
+	public void startEngine() {
+		if (engine.getisStarted())
+			System.out.println(engine.getName() + " engine has been " + "already started in " + name);
+		else if (!engine.getisStarted())
+			System.out.println("Car " + name + " is starting a " + engine.getName() + " engine\n" + engine.getName()
+					+ " engine has been started");
+		engine.isStarted = true;
+	}
+
+	public void stopEngine() {
+		if (engine.getisStarted())
+			System.out.println("Car " + name + " is stopping " + engine.getName() + " engine");
+		engine.isStarted = false;
+	}
+
+	public void drive(int speed, int distance) {
+		double consumption = (engine.getCapacity() / 100) * (distance * 0.01);
+		double range = fuelTankCapacity * (engine.getCapacity() / 100) / 4;// I don't know exactly why it works but it
+																			// works properly for this arguments.
+		rFuelAmount = fuelTankCapacity - consumption;
+
+		if (fuelTankCapacity == 0.0) {
+			System.out.println("You can't drive, tank is empty");
+		} else if (engine.getisStarted() && rFuelAmount > 0 && speed <= engine.maxSpeed()) {
+			System.out.println("Car " + name + " has been driven for " + distance + "km with speed " + speed
+					+ "km/h. Remaining fuel: " + rFuelAmount + "l");
+			fuelTankCapacity = fuelTankCapacity - consumption;
+
+		} else if (engine.getisStarted() && rFuelAmount > 0 && speed > engine.maxSpeed()) {
+			System.out.println("Car " + name + " has been driven for " + distance + "km with speed " + engine.maxSpeed()
+					+ "km/h. Remaining fuel: " + rFuelAmount + "l");
+			fuelTankCapacity = fuelTankCapacity - consumption;
+		} else if (engine.getisStarted() && rFuelAmount <= 0) {
+			System.out.println(
+					"Car " + name + " has been driven for " + range + "km with speed " + speed + "km/h. Fuel is empty");
+			fuelTankCapacity = 0;
+		}
+	}
+
+	public void tank(double amountOfPetrol) {
+		fuelTankCapacity = amountOfPetrol;
+		System.out.println("Car "+name+" has been tanked");
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public double getFuelTankCapacity() {
+		return fuelTankCapacity;
+	}
+
+	public Engine getEngine() {
+		return engine;
+	}
+
+}

@@ -9,13 +9,13 @@ class Transport {
 	public void transType() {
 		System.out.println("I go by ...");
 	}
-
+	
 	public boolean question() {
 		return true;
 	}
 }
 
-class Car extends Transport { //I played around in class Car.
+class Car extends Transport {
 	boolean isTrue;
 
 	public boolean question() {
@@ -54,7 +54,7 @@ class Motorbike extends Transport {
 	}
 }
 
-class PublicTransport {
+class PublicTransport extends Transport {
 	public void pTransType() {
 		System.out.println("I'm going by...");
 	}
@@ -63,6 +63,9 @@ class PublicTransport {
 class Airplane extends PublicTransport {
 	public void pTransType() {
 		System.out.println("I'm going by Airplain");
+		for(int i=0;i<2;i++) {
+			System.out.println(i+" number of trips");
+		}
 	}
 }
 

@@ -1,6 +1,6 @@
 package CarWithInterfaces;
 
-public class Car {
+public class Car implements Chargable, Tankable {
 	private String name;
 	private String model;
 	
@@ -19,6 +19,12 @@ public class Car {
 	}
 	public void setModel(String model) {
 		this.model = model;
+	}
+	@Override
+	public void charge() {
+	}
+	@Override
+	public void tank() {
 	}
 
 	

@@ -8,7 +8,7 @@ public class ElectricCar extends Car implements Chargable {
 
 	@Override
 	public void charge() {
-		System.out.println(super.getName()+" "+super.getModel()+" has been charged");
+		System.out.println(super.getName()+" "+super.getModel()+" has been charged\n");
 	}
 
 	

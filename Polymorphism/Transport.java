@@ -15,12 +15,15 @@ public class Transport {
 	}
 	
 	public void move() {
+		System.out.println();
 	}
 	
 	public void maintain() {
+		System.out.println();
 	}
 	
 	public void rides() {
+		System.out.println();
 	}
 
 	public String getType() {

@@ -3,14 +3,16 @@ public class MobilePhone {
 	private String brand;
 	private String model;
 	private int batCapacity;
-	private int batAmount=1000;
-	private int memory = 500;
+	private int batAmount;
+	private int memory;
 	private int freeMemory;
+	private final int battery;
 
 	public MobilePhone(String brand, int batAmount, int memory) {
 		this.brand = brand;
 		this.batAmount = batAmount;
 		this.memory=memory;
+		battery = batAmount;
 	}
 
 	public void add(String name, int appWeight) {
@@ -38,7 +40,7 @@ public class MobilePhone {
 		
 	}
 	public void charge() {
-		batAmount=1000;
+		batAmount = battery;
 		System.out.println(brand+" has been charged. Remain battery capacity: "+batAmount+" mAh");
 	}
 

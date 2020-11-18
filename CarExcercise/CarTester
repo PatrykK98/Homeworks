@@ -2,14 +2,22 @@
 public class CarTester {
 	public static void main(String[] args) {
 		Engine diesel = new Engine("Diesel", 130, 2000);
+		Engine petrol = new Engine("benzyna z gazem", 260, 3200);
 		Car vw = new Car("VW Golf", diesel, 50);
+		Car mb = new Car("Merceds-Benz",petrol, 70);
 
+		vw.stopEngine();
+		vw.startEngine();
 		vw.drive(100, 50);
 		vw.drive(500, 50);
 		vw.drive(100, 200);
 		vw.drive(50, 100);
-		vw.tank(50);
+		vw.tank();
 		vw.drive(50, 100);
+		
+		
 
+		
+		
 	}
 }

@@ -1,0 +1,38 @@
+package clone_LaptopCloning;
+
+public class Laptop {
+	private String name;
+	private HardDrive harddrive;
+	private Processor processor;
+	private int displaySize;
+	private int weight;
+	private int RAMamount;
+
+	public Laptop(Processor processor, String name, HardDrive harddrive) {
+		this.name = name;
+		this.harddrive = harddrive;
+		this.processor = processor;
+	}
+	
+	public static Laptop copy (Laptop another) {
+			Processor copyProcessor = new Processor( another.processor.getName(),  another.processor.getCoresNumber(), another.processor.getFrequency()) ;
+			HardDrive copyHardDrive = new HardDrive (another.harddrive.getName(), another.harddrive.getCapacity(), another.harddrive.getType());
+			Laptop copy = new Laptop( copyProcessor, another.name, copyHardDrive);
+			return copy;
+		
+	}
+	public String getName() {
+		return name;
+	}
+
+
+	public Processor getProcessor() {
+		return processor;
+	}
+
+	public HardDrive getHarddrive() {
+		return harddrive;
+	}
+
+
+}

@@ -1,0 +1,50 @@
+package List;
+
+import java.awt.Point;
+import java.util.ArrayList;
+import java.util.LinkedList;
+
+public class ArrayList_vs_LinkedList {
+public static void main(String[] args) {
+
+	long startTime = System.currentTimeMillis();
+	LinkedList <Integer> linkTest = new LinkedList<>();	
+	for(int i=0;i<=100000;i++) 
+		linkTest.add(0, i);	
+
+	long endTime = System.currentTimeMillis();
+	long time =endTime - startTime;
+	System.out.println("Time spent for LinkedList: "+time);
+	//LinkedList execution time is much faster than ArrayList because it just add elements at the beginning by adding links.
+
+	long arrayStartTime = System.currentTimeMillis();
+	ArrayList <Integer> arrayTest = new ArrayList<>();
+	for(int i=0;i<=100000;i++) {
+		arrayTest.add(0, i);
+		}
+	long arrayEndTime = System.currentTimeMillis();
+	long arrayTime = arrayEndTime - arrayStartTime;
+	System.out.println("Time spent for ArrayList: "+arrayTime);
+	// ArrayList execution time is much longer because ArrayList have to shift all elements to right while adding elements at the beginning ( faster while adding at the end)
+	
+	System.out.println("===================GETTING ELEMENTS================");
+	
+	long getStartTime = System.currentTimeMillis();
+	for(int i=0;i<=100000;i++) {
+		linkTest.get(i);
+	}
+	long getEndTime = System.currentTimeMillis();
+	long theTime = getEndTime - getStartTime;
+	System.out.println("Time spent for LinkedList "+theTime);
+	// LinkedList execution time is very long because it iterate through the elements until it gets element with index i.
+	
+	long getsArrayTime = System.currentTimeMillis();
+	for(int i=0;i<=100000;i++) {
+		arrayTest.get(i);
+	}
+	long geteArrayTime = System.currentTimeMillis();
+	long getArrayTime = geteArrayTime - getsArrayTime;
+	System.out.println("Time spent for ArrayList: "+getArrayTime);
+	//ArrayList execution time is very fast, because it doesn't iterate through the elements but just get element with index i.
+}
+}

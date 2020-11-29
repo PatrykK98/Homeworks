@@ -1,1 +1,29 @@
+package Exercises;
 
+import java.util.HashMap;
+import java.util.Map;
+
+public class Catalogue {
+	public static void main(String[] args) {
+		Parts door = new Parts(1567, "BMW", "Door");
+		Parts wheel = new Parts(8765, "BMW", "Wheel");
+		Parts mask = new Parts(2752, "Seat", "Mask");
+		Parts tyre = new Parts(1532, "Dayton", "Tyre");
+		Parts radio = new Parts(1256, "BlauPunkt","Radio");
+		Parts exhaust = new Parts(9742, "Yoshimura", "Exhaust");
+		
+		Map<Integer, Parts> catalogue = new HashMap<>();
+		catalogue.put(door.getPartNumber(), door);
+		catalogue.put(wheel.getPartNumber(), wheel);
+		catalogue.put(mask.getPartNumber(), mask);
+		catalogue.put(tyre.getPartNumber(), tyre);
+		catalogue.put(exhaust.getPartNumber(), exhaust);
+		catalogue.put(radio.getPartNumber(), radio);
+		
+		System.out.println(catalogue.get(1567));
+		System.out.println(catalogue.get(1532));
+		System.out.println(catalogue.get(9742));
+
+
+	}
+}

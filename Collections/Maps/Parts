@@ -1,0 +1,27 @@
+package Exercises;
+
+public class Parts {
+	private int partNumber;
+	private String brand, name;
+	public Parts(int partNumber, String brand, String name) {
+		this.partNumber = partNumber;
+		this.brand = brand;
+		this.name = name;
+	}
+	public int getPartNumber() {
+		return partNumber;
+	}
+	
+	public String getBrand() {
+		return brand;
+	}
+	public String getName() {
+		return name;
+	}
+	@Override
+	public String toString() {
+		return name+" made by "+brand+" with serial number: "+partNumber;
+	}
+	
+	
+}

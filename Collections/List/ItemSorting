@@ -22,14 +22,15 @@ class ComparedByPrice implements Comparator<Item> {
 			return 0;
 		}
 	}
+
 }
 
 public class ItemCatalogue {
 	public static void main(String[] args) {
 		Item door = new Item("door", 500);
 		Item wheel = new Item("wheel", 1500);
-		Item light = new Item("light", 350);
-		Item stamp = new Item("stamp", 20);
+		Item light = new Item("xenonLight", 350);
+		Item stamp = new Item("maskStamp", 20);
 
 		List<Item> things = new ArrayList<>();
 		things.add(wheel);
@@ -53,6 +54,11 @@ public class ItemCatalogue {
 		}
 		System.out.println("\nCompared from the most expensive: ");
 		Collections.sort(things, new ComparedByPrice().reversed());
+		for (Item item : things) {
+			System.out.println(item);
+		}
+		System.out.println("\nCompare by the longest name");
+		Collections.sort(things);
 		for (Item item : things) {
 			System.out.println(item);
 		}

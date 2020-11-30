@@ -1,0 +1,60 @@
+package Exercises;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
+class ComparedByName implements Comparator<Item> {
+	@Override
+	public int compare(Item o1, Item o2) {
+		return o1.getName().compareTo(o2.getName());
+	}
+}
+
+class ComparedByPrice implements Comparator<Item> {
+	public int compare(Item i1, Item i2) {
+		if (i1.getPrice() > i2.getPrice()) {
+			return 1;
+		} else if (i1.getPrice() < i2.getPrice()) {
+			return -1;
+		} else {
+			return 0;
+		}
+	}
+}
+
+public class ItemCatalogue {
+	public static void main(String[] args) {
+		Item door = new Item("door", 500);
+		Item wheel = new Item("wheel", 1500);
+		Item light = new Item("light", 350);
+		Item stamp = new Item("stamp", 20);
+
+		List<Item> things = new ArrayList<>();
+		things.add(wheel);
+		things.add(stamp);
+		things.add(light);
+		things.add(door);
+		System.out.println("\nCompared by name: ");
+		Collections.sort(things, new ComparedByName());
+		for (Item item : things) {
+			System.out.println(item);
+		}
+		System.out.println("\nCompared by reversed name: ");
+		Collections.sort(things, new ComparedByName().reversed());
+		for (Item item : things) {
+			System.out.println(item);
+		}
+		System.out.println("\nCompared from the cheapest: ");
+		Collections.sort(things, new ComparedByPrice());
+		for (Item item : things) {
+			System.out.println(item);
+		}
+		System.out.println("\nCompared from the most expensive: ");
+		Collections.sort(things, new ComparedByPrice().reversed());
+		for (Item item : things) {
+			System.out.println(item);
+		}
+	}
+}

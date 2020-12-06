@@ -1,0 +1,13 @@
+
+public class Box<T> {
+	private T item;
+	
+	public void add (T item) {
+		this.item = item;
+	}
+	
+	public T getItem(T item){
+		this.item=item;
+		return item;
+	}
+}

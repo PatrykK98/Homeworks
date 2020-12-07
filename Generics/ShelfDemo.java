@@ -43,6 +43,6 @@ public class ShelfDemo {
 		stuffShelf.add(fBox);
 		stuffShelf.add(booksBox);
 		
-		fBox.getItem(food2);
+		fBox.getItems();
 	}
 }

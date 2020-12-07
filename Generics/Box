@@ -1,13 +1,19 @@
+import java.util.ArrayList;
+import java.util.List;
 
 public class Box<T> {
 	private T item;
-	
-	public void add (T item) {
+	List<T> items = new ArrayList<>();
+	public void add (T item) {;
 		this.item = item;
+		items.add(item);
 	}
 	
-	public T getItem(T item){
-		this.item=item;
+	public T getItems(){
+		System.out.println(items);
+		/*for(T element : items) {
+			System.out.println(element);
+		}*/
 		return item;
 	}
 }

@@ -1,0 +1,19 @@
+package Polymorphism_train;
+
+public abstract class Transport {
+	private String name;
+
+	protected Transport(String name) {
+		this.name = name;
+	}
+	public Transport() {
+	}
+
+	protected abstract void move();
+
+	public String getName() {
+		return name;
+	}
+	
+
+}

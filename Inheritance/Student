@@ -10,22 +10,4 @@ public class Student extends Person {
 		this.graduateYear=graduateYear;
 		this.faculty=faculty;
 	}
-	
-	public int getGraduateYear() {
-		return graduateYear;
-	}
-
-	public void setGraduateYear(int graduateYear) {
-		graduateYear = graduateYear;
-	}
-
-	public String getFaculty() {
-		return faculty;
-	}
-
-	public void setFaculty(String faculty) {
-		faculty = faculty;
-	}
-	
-	
 }

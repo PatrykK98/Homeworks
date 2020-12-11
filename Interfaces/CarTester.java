@@ -13,12 +13,17 @@ public static void main(String[] args) {
 	Car [] cars = {volk, eVolk, hVolk, mazd, eMazd, hMazd};
 	
 	for(int i=0;i<=cars.length-1;i++) {
-	if(cars[i].chargable) 
-		cars[i].charge();
-	
-	 if(cars[i].tankable) 
-		cars[i].tank();
+	if(cars[i] instanceof ElectricCar) {
+		 ((ElectricCar) cars[i]).charge();
+	}
+	else if(cars[i] instanceof FuelCar) {
+		((FuelCar) cars[i]).tank();
+	}
+	else if(cars[i] instanceof HybridCar) {
+		((HybridCar)cars[i]).charge();
+		((HybridCar)cars[i]).tank();
 	}
 	
+}
 }
 }

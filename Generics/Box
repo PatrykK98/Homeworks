@@ -11,9 +11,6 @@ public class Box<T> {
 	
 	public List<T> getItems(){
 		System.out.println(items);
-		/*for(T element : items) {
-			System.out.println(element);
-		}*/
 		return items;
 	}
 	

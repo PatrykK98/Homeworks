@@ -3,14 +3,14 @@ import java.util.ArrayList;
 public class ShelfDemo {
 	public static void main(String[] args) {
 
-		Fantasy fBook1 = new Fantasy();
-		Fantasy fBook2 = new Fantasy();
-		Book book1 = new Book();
-		Book book2 = new Book();
-		Toy toy1 = new Toy();
-		Toy toy2 = new Toy();
-		Food food1 = new Food();
-		Food food2 = new Food(); 
+		Fantasy fBook1 = new Fantasy("Clean Code","Robert C.Martin");
+		Fantasy fBook2 = new Fantasy("Harry Poter", "Rowling");
+		Book book1 = new Book("Shining", "Stephen King");
+		Book book2 = new Book("Superman", "Antonio Banderas");
+		Toy toy1 = new Toy("Hootwheels");
+		Toy toy2 = new Toy("Remoted car");
+		Food food1 = new Food("zapiekanka");
+		Food food2 = new Food("frytki"); 
 		
 		Box<Toy> toyBox = new Box<>();
 		toyBox.add(toy1);
@@ -43,6 +43,6 @@ public class ShelfDemo {
 		stuffShelf.add(fBox);
 		stuffShelf.add(booksBox);
 		
-		fBox.getItems();
+		fBookBox.getItems();
 	}
 }

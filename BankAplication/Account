@@ -1,27 +1,23 @@
-package Accounts;
+package restricted;
 
 import java.math.BigDecimal;
 
-import Banks.Bank;
-
 public abstract class Account {
 	private String number;
-	private BigDecimal balance = BigDecimal.ZERO;
+	protected BigDecimal balance = BigDecimal.ZERO;
 	
 
-	public Account(String number) {
+	protected Account(String number) {
 		this.number = number;
 	}
 
 	public void topUp(BigDecimal amount) {
 		balance = balance.add(amount);
-
 	}
 
-	public BigDecimal withdraw(BigDecimal amount) {
-		balance = balance.subtract(amount);
-		return balance;
-	}
+	abstract BigDecimal withdraw(BigDecimal amount);
+	
+	abstract BigDecimal recalculatePercents(BigDecimal percent);
 
 	public String getNumber() {
 		return number;

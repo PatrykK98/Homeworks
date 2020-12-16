@@ -1,12 +1,10 @@
-package Banks;
+package restricted;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
 import javax.security.auth.login.AccountNotFoundException;
-
-import Accounts.Account;
 
 public class Bank {
 	private String name;
@@ -22,7 +20,10 @@ public class Bank {
 
 	final Map<String, Account> accountList = new HashMap<>();
 
-	public void registerAccount(Account a) {
+	public void registerDebitAccount(Account a) {
+		accountList.put(a.getNumber(), a);
+	}
+	public void registerCreditAccount(Account a) {
 		accountList.put(a.getNumber(), a);
 	}
 
@@ -30,15 +31,19 @@ public class Bank {
 		accountList.get(accountNumber).topUp(amount);
 	}
 
-	BigDecimal withdraw(String accountNumber, BigDecimal amount) {
+	public BigDecimal withdraw(String accountNumber, BigDecimal amount) {
 		return accountList.get(accountNumber).withdraw(amount);
+	}
+	public BigDecimal recalculatePercents(String accountNumber, BigDecimal percents) {
+		return accountList.get(accountNumber).recalculatePercents(percents);
 	}
 
 	@Override
 	public String toString() {
 		return "Bank [name=" + name + accountList + "]";
 	}
-		@Override
+
+	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

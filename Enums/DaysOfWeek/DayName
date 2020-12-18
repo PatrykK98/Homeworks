@@ -1,0 +1,6 @@
+package DaysOfWeek;
+
+public interface Name {
+	public String fromEnglishName(String englishName);
+	public String fromPolishName(String polishName);
+}

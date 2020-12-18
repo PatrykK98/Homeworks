@@ -1,0 +1,83 @@
+package DaysOfWeek;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public enum DayOfWeek implements Weekends, Name {
+	MON("Monday", "Poniedziałek", true), TUE("Tuesday", "Wtorek", true), WED("Wednesday", "Środa", true),
+	THU("Thursday", "Czwartek", true), FRI("Friday", "Piątek", true), SAT("Saturday", "Sobota", false),
+	SUN("Sunday", "Niedziela", false);
+
+	String englishName;
+	String polishName;
+	boolean workingDay;
+
+	private DayOfWeek(String englishName, String polishName, boolean workingDay) {
+		this.englishName = englishName;
+		this.polishName = polishName;
+		this.workingDay = workingDay;
+	}
+	@Override
+	public String fromEnglishName(String englishName) {
+		for (DayOfWeek day : values()) {
+			if (day.englishName == englishName) {
+				return englishName + " in polish is: " + day.polishName;
+			}
+		}
+		return null;
+	}
+	@Override
+	public String fromPolishName(String polishName) {
+		for (DayOfWeek day : values()) {
+			if (day.polishName == polishName) {
+				return polishName + " in english is: " + day.englishName;
+			}
+		}
+		return null;
+	}
+
+	@Override
+	public boolean isWeekend() {
+		if (workingDay) {
+			return false;
+		} else if (!workingDay) {
+			return true;
+		}
+		return true;
+	}
+
+	@Override
+	public void getWeeknds(List<? extends DayOfWeek> dayList) {
+		List<DayOfWeek> weekList = new ArrayList<>();
+		for (DayOfWeek random : dayList) {
+			if (!random.workingDay) {
+				weekList.add(random);
+			}
+		}
+		System.out.println(weekList);
+	}
+
+	@Override
+	public void getWorkingDays(List<? extends DayOfWeek> dayList) {
+		List<DayOfWeek> weekList = new ArrayList<>();
+		for (DayOfWeek random : dayList) {
+			if (random.workingDay) {
+				weekList.add(random);
+			}
+		}
+		System.out.println(weekList);
+	}
+
+	public String getEnglishName() {
+		return englishName;
+	}
+
+	public String getPolishName() {
+		return polishName;
+	}
+
+	public boolean isWorikngDay() {
+		return workingDay;
+	}
+
+}

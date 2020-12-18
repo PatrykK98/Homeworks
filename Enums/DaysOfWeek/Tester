@@ -1,0 +1,27 @@
+package DaysOfWeek;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Tester{
+public static void main(String[] args) {
+	
+	DayOfWeek first = DayOfWeek.MON;
+	DayOfWeek second = DayOfWeek.TUE;
+	DayOfWeek third = DayOfWeek.WED;
+	DayOfWeek fourth = DayOfWeek.THU;
+	DayOfWeek fifth = DayOfWeek.FRI;
+	DayOfWeek sixth = DayOfWeek.SAT;
+	DayOfWeek seventh = DayOfWeek.SUN;
+	
+	
+	System.out.println(first.fromEnglishName("Saturday"));
+	System.out.println(sixth.fromPolishName("Poniedziałek"));
+	System.out.println(sixth.isWeekend());
+	List<DayOfWeek> dayList = new ArrayList<>();
+	dayList.add(seventh);dayList.add(second);dayList.add(sixth);dayList.add(fifth);dayList.add(fourth);dayList.add(third);dayList.add(first);
+	first.getWeeknds(dayList);
+	first.getWorkingDays(dayList);
+
+}
+}

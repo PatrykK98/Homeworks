@@ -1,11 +1,14 @@
+
 package restricted;
 
 import java.math.BigDecimal;
 
+import ExceptionClasses.NonSufficientFundsException;
+import ExceptionClasses.ReachedCreditLimitException;
+
 public abstract class Account {
 	private String number;
 	protected BigDecimal balance = BigDecimal.ZERO;
-	
 
 	protected Account(String number) {
 		this.number = number;
@@ -15,15 +18,15 @@ public abstract class Account {
 		balance = balance.add(amount);
 	}
 
-	abstract BigDecimal withdraw(BigDecimal amount);
-	
+	abstract BigDecimal withdraw(BigDecimal amount) throws NonSufficientFundsException, ReachedCreditLimitException;
+
 	abstract BigDecimal recalculatePercents(BigDecimal percent);
 
 	public String getNumber() {
 		return number;
 	}
 
-	BigDecimal getBalance() {
+	public BigDecimal getBalance() {
 		return balance;
 	}
 

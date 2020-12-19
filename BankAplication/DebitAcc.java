@@ -8,17 +8,18 @@ public class DebitAcc extends Account {
 		super(number);
 	}
 
-	@Override
+		@Override
 	BigDecimal withdraw(BigDecimal amount) {
 		balance = balance.subtract(amount);
+		
 		if (balance.compareTo(limit) == -1) {
 			System.out.println("You can't make the transaction beacause you do not have enough money");
 			balance = balance.add(amount);
 		}
 		if (balance.compareTo(limit) == 1) {
-			return balance;
+			System.out.println("Your balance is: ");
 		}if(balance.compareTo(limit) == 0) {
-			System.out.println("Balance equals 0");
+			System.out.println("You reached the limit, your balance equals ");
 		}
 		return balance;
 	}

@@ -6,6 +6,10 @@ import java.util.Map;
 
 import javax.security.auth.login.AccountNotFoundException;
 
+import ExceptionClasses.NonSufficientFoundsException;
+import ExceptionClasses.NonSufficientFundsException;
+import ExceptionClasses.ReachedCreditLimitException;
+
 public class Bank {
 	private String name;
 	private Account account;
@@ -14,7 +18,7 @@ public class Bank {
 		this.name = name;
 	}
 
-	public String getName() {
+	public String getName() {	
 		return name;
 	}
 
@@ -27,14 +31,24 @@ public class Bank {
 		accountList.put(a.getNumber(), a);
 	}
 
-	public void topUp(String accountNumber, BigDecimal amount) {
+	public void topUp(String accountNumber, BigDecimal amount)throws AccountNotFoundException{
+		if(!accountList.containsKey(accountNumber)) {
+			throw new AccountNotFoundException("Account doesn't exist");
+		}
 		accountList.get(accountNumber).topUp(amount);
 	}
 
-	public BigDecimal withdraw(String accountNumber, BigDecimal amount) {
+	public BigDecimal withdraw(String accountNumber, BigDecimal amount) throws NonSufficientFundsException, ReachedCreditLimitException,AccountNotFoundException{
+		if(!accountList.containsKey(accountNumber)) {
+			throw new AccountNotFoundException("Account doesn't exist");
+		}
 		return accountList.get(accountNumber).withdraw(amount);
+		
 	}
-	public BigDecimal recalculatePercents(String accountNumber, BigDecimal percents) {
+	public BigDecimal recalculatePercents(String accountNumber, BigDecimal percents)throws AccountNotFoundException {
+		if(!accountList.containsKey(accountNumber)) {
+			throw new AccountNotFoundException("Account doesn't exist");
+		}
 		return accountList.get(accountNumber).recalculatePercents(percents);
 	}
 

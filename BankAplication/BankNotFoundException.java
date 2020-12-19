@@ -1,4 +1,4 @@
-package Banks;
+package ExceptionClasses;
 
 public class BankNotFoundException extends Exception {
 

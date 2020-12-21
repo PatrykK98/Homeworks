@@ -7,7 +7,7 @@ public class Avarage_Calculator {
 			sum += p;
 		}
 		System.out.println(sum);
-		double amount = args.length-1;
+		double amount = args.length;
 		double avarage = sum/amount;
 		System.out.println(avarage);
 	}

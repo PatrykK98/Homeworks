@@ -15,7 +15,7 @@ public class CreditAcc extends Account {
 	BigDecimal withdraw(BigDecimal amount) throws ReachedCreditLimitException  {
 		balance = balance.subtract(amount);
 		if (balance.compareTo(limit) == 0){
-			throw new ReachedCreditLimitException("You reached the limit which is: "+limit);
+			System.out.println("You reached the limit which is: "+limit);
 		}
 		if (balance.compareTo(limit) == -1){
 			balance = balance.add(amount);
@@ -37,9 +37,6 @@ public class CreditAcc extends Account {
 			return balance.add(balance.multiply(percent));
 		}
 		return balance;
-	}
-	public BigDecimal getLimit() {
-		return limit;
 	}
 	
 

@@ -1,0 +1,27 @@
+package UserName;
+
+import java.time.LocalDate;
+
+public class Person {
+	
+	private String name;
+	private String secName;
+	String date;
+	LocalDate today = date!=null?LocalDate.parse(date):LocalDate.now();
+	
+	public Person(String name, String secName, String date) {
+		this.name = name;
+		this.secName = secName;
+		this.date = date;
+	}
+	
+	public void userName() {
+		char firstLetter = name.charAt(0);
+		if (date != null) {
+			System.out.println(firstLetter + secName + LocalDate.parse(date).getYear());
+		} else {
+			System.out.println(firstLetter + secName + today.getYear());
+		}
+
+	}
+}

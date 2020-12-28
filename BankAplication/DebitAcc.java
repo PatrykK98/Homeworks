@@ -33,9 +33,6 @@ public class DebitAcc extends Account {
 	@Override
 	BigDecimal recalculatePercents(BigDecimal percent) {
 		BigDecimal value = balance.subtract(balance.multiply(percent));
-		if (value.compareTo(BigDecimal.ZERO) == -1) {
-			System.out.println("not enough money");
-		}
 		if (balance.compareTo(BigDecimal.ZERO) == 1) {
 			return balance.subtract(balance.multiply(percent));
 		}

@@ -1,69 +1,99 @@
-package Banks;
+package restricted;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.security.auth.login.AccountNotFoundException;
 
-import ExceptionClasses.BankNotFoundException;
 import ExceptionClasses.NonSufficientFundsException;
 import ExceptionClasses.ReachedCreditLimitException;
-import restricted.Account;
-import restricted.Bank;
-import restricted.CreditAcc;
-import restricted.DebitAcc;
 
-public class BankApp {
+public class Bank {
+	private String name;
+	private Account account;
 
-	static {
-		initBanking();
-
+	public Bank(String name) {
+		this.name = name;
 	}
 
-	public static void main(String[] args) {
-		Bank lloyds = new Bank("Lloyds");
-		Bank alior = new Bank("Alior");
-		Account personal = new CreditAcc("12345", new BigDecimal("-50"));
-		Account pers = new CreditAcc("543", new BigDecimal("-80"));
-		Account corporate = new DebitAcc("54321");
-		Account corp = new DebitAcc("654");
-		lloyds.registerCreditAccount(personal);
-		lloyds.registerCreditAccount(pers);
-		alior.registerDebitAccount(corporate);
-		alior.registerDebitAccount(corp);
-		NationalBank.registerBank(lloyds);
-		NationalBank.registerBank(alior);
-		try {
-			lloyds.topUp("12345", new BigDecimal("0"));
-			alior.topUp("54321", new BigDecimal("100"));
-			//System.out.println(lloyds.withdraw("12345", new BigDecimal("1")));
-			//System.out.println(alior.withdraw("54321", new BigDecimal("46")));
-			lloyds.transfer("12345", new BigDecimal("1"), "543");
-		} catch (NonSufficientFundsException e) {
-			System.out.println(e.getMessage());
-		} catch (ReachedCreditLimitException a) {
-			System.out.println(a.getMessage());
-		}catch(AccountNotFoundException b) {
-			System.out.println(b.getMessage());
+	public String getName() {
+		return name;
+	}
+
+	final Map<String, Account> accountList = new HashMap<>();
+
+	public void registerDebitAccount(Account a) {
+		accountList.put(a.getNumber(), a);
+	}
+
+	public void registerCreditAccount(Account a) {
+		accountList.put(a.getNumber(), a);
+	}
+
+	public void topUp(String accountNumber, BigDecimal amount) throws AccountNotFoundException {
+		if (!accountList.containsKey(accountNumber)) {
+			throw new AccountNotFoundException("Account doesn't exist");
 		}
-		try {
-			System.out.println(NationalBank.getByName("Lloyds"));
-		} catch (BankNotFoundException e) {
-			System.out.println(e.getMessage());
+		accountList.get(accountNumber).topUp(amount);
+	}
+
+	public BigDecimal withdraw(String accountNumber, BigDecimal amount)
+			throws NonSufficientFundsException, ReachedCreditLimitException, AccountNotFoundException {
+		if (!accountList.containsKey(accountNumber)) {
+			throw new AccountNotFoundException("Account doesn't exist");
 		}
+		return accountList.get(accountNumber).withdraw(amount);
 
 	}
 
-	private static void initBanking() {
+	public void transfer(String sourceAccount, BigDecimal amount, String targetAccount, Bank bank)
+			throws NonSufficientFundsException, ReachedCreditLimitException, AccountNotFoundException {
+		if (!accountList.containsKey(sourceAccount)) {
+			throw new AccountNotFoundException("Account doesn't exist");
 
-		Bank lloyds = new Bank("Lloyds");
-		Bank alior = new Bank("Alior");
-		Account personal = new CreditAcc("12345", new BigDecimal("-50"));
-		Account corporate = new DebitAcc("54321");
-		lloyds.registerCreditAccount(personal);
-		alior.registerDebitAccount(corporate);
-		NationalBank.registerBank(lloyds);
-		NationalBank.registerBank(alior);
-
+		}
+		accountList.get(sourceAccount).withdraw(amount);
+		bank.topUp(targetAccount, amount);
+		System.out.println(bank.toString());
 
 	}
+
+	public BigDecimal recalculatePercents(String accountNumber, BigDecimal percents) throws AccountNotFoundException {
+		if (!accountList.containsKey(accountNumber)) {
+			throw new AccountNotFoundException("Account doesn't exist");
+		}
+		return accountList.get(accountNumber).recalculatePercents(percents);
+	}
+
+	@Override
+	public String toString() {
+		return "Bank [name=" + name + accountList + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Bank other = (Bank) obj;
+		if (name == null) {
+			if (other.name != null)
+				return false;
+		} else if (!name.equals(other.name))
+			return false;
+		return true;
+	}
+
 }

@@ -17,19 +17,21 @@ public enum DayOfWeek implements Weekends, Name {
 		this.polishName = polishName;
 		this.workingDay = workingDay;
 	}
+
 	@Override
 	public String fromEnglishName(String englishName) {
 		for (DayOfWeek day : values()) {
-			if (day.englishName == englishName) {
+			if (day.englishName.equals(englishName)) {
 				return englishName + " in polish is: " + day.polishName;
 			}
 		}
 		return null;
 	}
+
 	@Override
 	public String fromPolishName(String polishName) {
 		for (DayOfWeek day : values()) {
-			if (day.polishName == polishName) {
+			if (day.polishName.equals(polishName)) {
 				return polishName + " in english is: " + day.englishName;
 			}
 		}
@@ -40,8 +42,6 @@ public enum DayOfWeek implements Weekends, Name {
 	public boolean isWeekend() {
 		if (workingDay) {
 			return false;
-		} else if (!workingDay) {
-			return true;
 		}
 		return true;
 	}

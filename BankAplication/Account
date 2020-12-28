@@ -10,11 +10,11 @@ public abstract class Account {
 	private String number;
 	protected BigDecimal balance = BigDecimal.ZERO;
 
-	protected Account(String number) {
+	Account(String number) {
 		this.number = number;
 	}
 
-	public void topUp(BigDecimal amount) {
+	void topUp(BigDecimal amount) {
 		balance = balance.add(amount);
 	}
 
@@ -22,11 +22,11 @@ public abstract class Account {
 
 	abstract BigDecimal recalculatePercents(BigDecimal percent);
 
-	public String getNumber() {
+	String getNumber() {
 		return number;
 	}
 
-	public BigDecimal getBalance() {
+	BigDecimal getBalance() {
 		return balance;
 	}
 

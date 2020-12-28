@@ -1,0 +1,13 @@
+package UserName;
+
+import java.time.LocalDate;
+
+public class Tester {
+public static void main(String[] args) {
+	Person per1 = new Person("Jan", "Kowalski","1965-04-02");
+	Person per2 = new Person("Marek", "Mostowiak", null);
+	per1.userName();
+	per2.userName();
+	
+}
+}

@@ -10,7 +10,7 @@ Scanner input = new Scanner (System.in);
 	String word = input.nextLine();
 	boolean check = answear.equalsIgnoreCase(word);
 	
-	if(check==false) {
+	if(!check) {
 		System.out.println("You can go for a walk without umbrella");
 	}
 	else {
@@ -18,4 +18,3 @@ Scanner input = new Scanner (System.in);
 	}
 }
 }
-

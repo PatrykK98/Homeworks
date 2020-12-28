@@ -6,7 +6,6 @@ import java.util.Map;
 
 import javax.security.auth.login.AccountNotFoundException;
 
-import ExceptionClasses.NonSufficientFoundsException;
 import ExceptionClasses.NonSufficientFundsException;
 import ExceptionClasses.ReachedCreditLimitException;
 
@@ -23,7 +22,7 @@ public class Bank {
 	}
 
 	final Map<String, Account> accountList = new HashMap<>();
-
+	
 	public void registerDebitAccount(Account a) {
 		accountList.put(a.getNumber(), a);
 	}
@@ -44,6 +43,14 @@ public class Bank {
 		}
 		return accountList.get(accountNumber).withdraw(amount);
 		
+	}
+	public void transfer(String sourceAccount, BigDecimal amount, String targetAccount) throws NonSufficientFundsException, ReachedCreditLimitException,AccountNotFoundException{
+		if(!accountList.containsKey(sourceAccount) || !accountList.containsKey(targetAccount)) {
+			throw new AccountNotFoundException("Account doesn't exist or belongs to another bank");
+		}
+		accountList.get(sourceAccount).withdraw(amount);
+		accountList.get(targetAccount).topUp(amount);
+	
 	}
 	public BigDecimal recalculatePercents(String accountNumber, BigDecimal percents)throws AccountNotFoundException {
 		if(!accountList.containsKey(accountNumber)) {

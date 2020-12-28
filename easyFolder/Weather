@@ -1,15 +1,16 @@
+package training;
 import java.util.Scanner;
 
-public class If {
+public class weather {
 public static void main(String[] args) {
-Scanner sc1 = new Scanner (System.in);
-	String str1= "yes";
+Scanner input = new Scanner (System.in);
+	String answear= "yes";
 	
 	System.out.println("Is it raining today ?");
-	String word = sc1.nextLine();
-	boolean trv1 = str1.equalsIgnoreCase(word);
+	String word = input.nextLine();
+	boolean check = answear.equalsIgnoreCase(word);
 	
-	if(trv1==false) {
+	if(check==false) {
 		System.out.println("You can go for a walk without umbrella");
 	}
 	else {

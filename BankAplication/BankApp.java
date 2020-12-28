@@ -1,6 +1,7 @@
 package Banks;
 
 import java.math.BigDecimal;
+import java.util.Scanner;
 
 import javax.security.auth.login.AccountNotFoundException;
 
@@ -14,24 +15,23 @@ import restricted.DebitAcc;
 
 public class BankApp {
 
-	static {
-		initBanking();
-
-	}
-
 	public static void main(String[] args) {
 		Bank lloyds = new Bank("Lloyds");
 		Bank alior = new Bank("Alior");
 		Account personal = new CreditAcc("12345", new BigDecimal("-50"));
+		Account pers = new CreditAcc("543", new BigDecimal("-80"));
 		Account corporate = new DebitAcc("54321");
+		Account corp = new DebitAcc("654");
 		lloyds.registerCreditAccount(personal);
+		lloyds.registerCreditAccount(pers);
 		alior.registerDebitAccount(corporate);
+		alior.registerDebitAccount(corp);
 		NationalBank.registerBank(lloyds);
 		NationalBank.registerBank(alior);
 		try {
-			lloyds.topUp("12345", new BigDecimal("100"));
+			lloyds.topUp("12345", new BigDecimal("0"));
 			alior.topUp("54321", new BigDecimal("100"));
-			System.out.println(lloyds.withdraw("12345", new BigDecimal("151")));
+			lloyds.transfer("12345", new BigDecimal("50"), "654", alior);
 		} catch (NonSufficientFundsException e) {
 			System.out.println(e.getMessage());
 		} catch (ReachedCreditLimitException a) {
@@ -40,24 +40,11 @@ public class BankApp {
 			System.out.println(b.getMessage());
 		}
 		try {
-			System.out.println(NationalBank.getByName("Alior"));
+			System.out.println(NationalBank.getByName("Lloyds"));
 		} catch (BankNotFoundException e) {
 			System.out.println(e.getMessage());
 		}
 
 	}
 
-	private static void initBanking() {
-
-		Bank lloyds = new Bank("Lloyds");
-		Bank alior = new Bank("Alior");
-		Account personal = new CreditAcc("12345", new BigDecimal("-50"));
-		Account corporate = new DebitAcc("54321");
-		lloyds.registerCreditAccount(personal);
-		alior.registerDebitAccount(corporate);
-		NationalBank.registerBank(lloyds);
-		NationalBank.registerBank(alior);
-
-
-	}
 }

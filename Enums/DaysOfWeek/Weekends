@@ -4,6 +4,6 @@ import java.util.List;
 
 public interface Weekends {
 	public boolean isWeekend();
-	public void getWeeknds(List<? extends DayOfWeek> dayList);
-	public void getWorkingDays(List<? extends DayOfWeek> dayList);
+	public void getWeeknds();
+	public void getWorkingDays();
 }

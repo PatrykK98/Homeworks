@@ -11,28 +11,26 @@ public enum DayOfWeek implements Weekends, Name {
 	String englishName;
 	String polishName;
 	boolean workingDay;
-
+	
 	private DayOfWeek(String englishName, String polishName, boolean workingDay) {
 		this.englishName = englishName;
 		this.polishName = polishName;
 		this.workingDay = workingDay;
 	}
-
 	@Override
-	public String fromEnglishName(String englishName) {
+	public DayOfWeek fromEnglishName(String englishName) {
 		for (DayOfWeek day : values()) {
 			if (day.englishName.equals(englishName)) {
-				return englishName + " in polish is: " + day.polishName;
+				return day;
 			}
 		}
 		return null;
 	}
-
 	@Override
-	public String fromPolishName(String polishName) {
+	public DayOfWeek fromPolishName(String polishName) {
 		for (DayOfWeek day : values()) {
 			if (day.polishName.equals(polishName)) {
-				return polishName + " in english is: " + day.englishName;
+				return day;
 			}
 		}
 		return null;
@@ -40,16 +38,13 @@ public enum DayOfWeek implements Weekends, Name {
 
 	@Override
 	public boolean isWeekend() {
-		if (workingDay) {
-			return false;
-		}
-		return true;
+		return !workingDay;
 	}
 
 	@Override
-	public void getWeeknds(List<? extends DayOfWeek> dayList) {
+	public void getWeeknds() {
 		List<DayOfWeek> weekList = new ArrayList<>();
-		for (DayOfWeek random : dayList) {
+		for (DayOfWeek random : DayOfWeek.values()) {
 			if (!random.workingDay) {
 				weekList.add(random);
 			}
@@ -58,9 +53,9 @@ public enum DayOfWeek implements Weekends, Name {
 	}
 
 	@Override
-	public void getWorkingDays(List<? extends DayOfWeek> dayList) {
+	public void getWorkingDays() {
 		List<DayOfWeek> weekList = new ArrayList<>();
-		for (DayOfWeek random : dayList) {
+		for (DayOfWeek random : DayOfWeek.values()) {
 			if (random.workingDay) {
 				weekList.add(random);
 			}

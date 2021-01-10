@@ -1,0 +1,5 @@
+package modifyString;
+@FunctionalInterface
+public interface StringChanger {
+    String modifyString(String a);
+}

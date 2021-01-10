@@ -1,0 +1,5 @@
+package modifyString;
+@FunctionalInterface
+public interface StringCounter {
+    Integer count(String a);
+}

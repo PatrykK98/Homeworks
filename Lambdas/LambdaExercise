@@ -10,44 +10,13 @@ public class LambdaExercise {
     }
     public static void main(String[] args) {
         String text = "Java kawa ZABAWA";
-        // Lambdas based on methods from some class
-        Function<String, String> toUpperCase = n -> n.toUpperCase();
-
-        Function<String, String> toLowerCase = n -> n.toLowerCase();
-
-        Function<String, String> firstLetter = n -> n.valueOf(n.charAt(0));
-
-        Function<String, String> lastLetter = n -> n.valueOf(n.charAt(n.length()-1));
-
-        System.out.println(modifyString(text,toUpperCase));
-        System.out.println(modifyString(text,toLowerCase));
-        System.out.println(modifyString(text,firstLetter));
-        System.out.println(modifyString(text,lastLetter));
-
-        Function<String, Integer> stringLength = n -> n.length();
-
-        Function<String, Integer> stringNumber = (n) -> n.split(" ").length;
-
-            System.out.println(countString(text,stringLength));
-            System.out.println(countString(text,stringNumber));
-        System.out.println("\n-------------------------------------------------------------\n");
-        //Lambdas based on abstract methods from FunctionalInterface
-
-        StringChanger stringToUpper = input -> input.toUpperCase();
-        StringChanger stringToLower = input -> input.toLowerCase();
-        StringChanger firstLetterFromString = input -> input.valueOf(input.charAt(0));
-        StringChanger lastLetterFromString = input -> input.valueOf(input.charAt(input.length()-1));
-
-        System.out.println(stringToUpper.modifyString(text));
-        System.out.println(stringToLower.modifyString(text));
-        System.out.println(firstLetterFromString.modifyString(text));
-        System.out.println(lastLetterFromString.modifyString(text));
-
-        StringCounter lengthOfString = a -> a.length();
-        StringCounter wordsCounter = a -> a.split(" ").length;
-
-        System.out.println(lengthOfString.count(text));
-        System.out.println(wordsCounter.count(text));
-    }
-    }
-
+        
+        System.out.println(modifyString(text,n -> n.toUpperCase()));
+        System.out.println(modifyString(text,n -> n.toLowerCase()));
+        System.out.println(modifyString(text,n -> n.valueOf(n.charAt(0))));
+        System.out.println(modifyString(text,n -> n.valueOf(n.charAt(n.length()-1))));
+        System.out.println(countString(text,n -> n.length()));
+        System.out.println(countString(text, n -> n.split(" ").length));
+   
+        }
+        }

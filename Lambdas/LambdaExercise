@@ -10,7 +10,7 @@ public class LambdaExercise {
     }
     public static void main(String[] args) {
         String text = "Java kawa ZABAWA";
-        // Lambdas based on methods from some class
+        
         System.out.println(modifyString(text,n -> n.toUpperCase()));
         System.out.println(modifyString(text,n -> n.toLowerCase()));
         System.out.println(modifyString(text,n -> n.valueOf(n.charAt(0))));
@@ -27,20 +27,12 @@ public class LambdaExercise {
         Function<String, Integer> function5 = n -> n.length();
         Function<String, Integer> function6 = n -> n.split(" ").length;
 
-        String functionResult = function.apply(text);
-        String function2Result = function2.apply(text);
-        String function3Result = function3.apply(text);
-        String function4Result = function4.apply(text);
-        Integer function5Result = function5.apply(text);
-        Integer function6Result = function6.apply(text);
-
-        System.out.println(functionResult);
-        System.out.println(function2Result);
-        System.out.println(function3Result);
-        System.out.println(function4Result);
-        System.out.println(function5Result);
-        System.out.println(function6Result);
-
+        System.out.println(function.apply(text));
+        System.out.println(function2.apply(text));
+        System.out.println(function3.apply(text));
+        System.out.println(function4.apply(text));
+        System.out.println(function5.apply(text));
+        System.out.println(function6.apply(text));
     }
     }
 

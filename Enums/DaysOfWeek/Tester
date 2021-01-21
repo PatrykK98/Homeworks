@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Tester{
-public static void main(String[] args) {
-	
-	DayOfWeek first = DayOfWeek.MON;
-	DayOfWeek second = DayOfWeek.TUE;
-	DayOfWeek third = DayOfWeek.WED;
-	DayOfWeek fourth = DayOfWeek.THU;
-	DayOfWeek fifth = DayOfWeek.FRI;
-	DayOfWeek sixth = DayOfWeek.SAT;
-	DayOfWeek seventh = DayOfWeek.SUN;
+    public static void main(String[] args) {
 
-	System.out.println(first.fromEnglishName("Saturday"));
-	System.out.println(sixth.fromPolishName("Poniedziałek"));
-	System.out.println(seventh.isWeekend());
-	first.getWeeknds();
-	first.getWorkingDays();
+        DayOfWeek first = DayOfWeek.MON;
+        DayOfWeek second = DayOfWeek.TUE;
+        DayOfWeek third = DayOfWeek.WED;
+        DayOfWeek fourth = DayOfWeek.THU;
+        DayOfWeek fifth = DayOfWeek.FRI;
+        DayOfWeek sixth = DayOfWeek.SAT;
+        DayOfWeek seventh = DayOfWeek.SUN;
 
-}
+        System.out.println(first.fromEnglishName("Saturday"));
+        System.out.println(sixth.fromPolishName("Poniedziałek"));
+        System.out.println(seventh.isWeekend());
+        System.out.println(first.getWeeknds());
+        System.out.println(first.getWorkingDays());
+
+    }
 }

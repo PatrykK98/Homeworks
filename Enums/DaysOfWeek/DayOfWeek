@@ -4,75 +4,75 @@ import java.util.ArrayList;
 import java.util.List;
 
 public enum DayOfWeek implements Weekends, Name {
-	MON("Monday", "Poniedziałek", true), TUE("Tuesday", "Wtorek", true), WED("Wednesday", "Środa", true),
-	THU("Thursday", "Czwartek", true), FRI("Friday", "Piątek", true), SAT("Saturday", "Sobota", false),
-	SUN("Sunday", "Niedziela", false);
+    MON("Monday", "Poniedziałek", true), TUE("Tuesday", "Wtorek", true), WED("Wednesday", "Środa", true),
+    THU("Thursday", "Czwartek", true), FRI("Friday", "Piątek", true), SAT("Saturday", "Sobota", false),
+    SUN("Sunday", "Niedziela", false);
 
-	String englishName;
-	String polishName;
-	boolean workingDay;
-	
-	private DayOfWeek(String englishName, String polishName, boolean workingDay) {
-		this.englishName = englishName;
-		this.polishName = polishName;
-		this.workingDay = workingDay;
-	}
-	@Override
-	public DayOfWeek fromEnglishName(String englishName) {
-		for (DayOfWeek day : values()) {
-			if (day.englishName.equals(englishName)) {
-				return day;
-			}
-		}
-		return null;
-	}
-	@Override
-	public DayOfWeek fromPolishName(String polishName) {
-		for (DayOfWeek day : values()) {
-			if (day.polishName.equals(polishName)) {
-				return day;
-			}
-		}
-		return null;
-	}
+    String englishName;
+    String polishName;
+    boolean workingDay;
 
-	@Override
-	public boolean isWeekend() {
-		return !workingDay;
-	}
+    private DayOfWeek(String englishName, String polishName, boolean workingDay) {
+        this.englishName = englishName;
+        this.polishName = polishName;
+        this.workingDay = workingDay;
+    }
+    @Override
+    public DayOfWeek fromEnglishName(String englishName) {
+        for (DayOfWeek day : values()) {
+            if (day.englishName.equals(englishName)) {
+                return day;
+            }
+        }
+        return null;
+    }
+    @Override
+    public DayOfWeek fromPolishName(String polishName) {
+        for (DayOfWeek day : values()) {
+            if (day.polishName.equals(polishName)) {
+                return day;
+            }
+        }
+        return null;
+    }
 
-	@Override
-	public void getWeeknds() {
-		List<DayOfWeek> weekList = new ArrayList<>();
-		for (DayOfWeek random : DayOfWeek.values()) {
-			if (!random.workingDay) {
-				weekList.add(random);
-			}
-		}
-		System.out.println(weekList);
-	}
+    @Override
+    public boolean isWeekend() {
+        return !workingDay;
+    }
 
-	@Override
-	public void getWorkingDays() {
-		List<DayOfWeek> weekList = new ArrayList<>();
-		for (DayOfWeek random : DayOfWeek.values()) {
-			if (random.workingDay) {
-				weekList.add(random);
-			}
-		}
-		System.out.println(weekList);
-	}
+    @Override
+    public List<DayOfWeek> getWeeknds() {
+        List<DayOfWeek> weekList = new ArrayList<>();
+        for (DayOfWeek random : DayOfWeek.values()) {
+            if (!random.workingDay) {
+                weekList.add(random);
+            }
+        }
+        return weekList;
+    }
 
-	public String getEnglishName() {
-		return englishName;
-	}
+    @Override
+    public List<DayOfWeek> getWorkingDays() {
+        List<DayOfWeek> weekList = new ArrayList<>();
+        for (DayOfWeek random : DayOfWeek.values()) {
+            if (random.workingDay) {
+                weekList.add(random);
+            }
+        }
+        return weekList;
+    }
 
-	public String getPolishName() {
-		return polishName;
-	}
+    public String getEnglishName() {
+        return englishName;
+    }
 
-	public boolean isWorikngDay() {
-		return workingDay;
-	}
+    public String getPolishName() {
+        return polishName;
+    }
+
+    public boolean isWorikngDay() {
+        return workingDay;
+    }
 
 }

@@ -3,7 +3,7 @@ package DaysOfWeek;
 import java.util.List;
 
 public interface Weekends {
-	public boolean isWeekend();
-	public void getWeeknds();
-	public void getWorkingDays();
+    public boolean isWeekend();
+    public List<DayOfWeek> getWeeknds();
+    public List<DayOfWeek> getWorkingDays();
 }
